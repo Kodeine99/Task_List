@@ -1,0 +1,30 @@
+.header {
+  width: 100%;
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 1px solid var(--color-light-gray);
+}
+nav {
+  width: 40%;
+}
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+h1.logo {
+  font-size: 4rem;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  transition:all 0.6s ease;
+}
+a:hover {
+  color: var(--color-light-blue);
+}
+span.user_name {
+  color: var(--color-light-blue);
+}
