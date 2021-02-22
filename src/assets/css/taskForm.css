@@ -126,10 +126,10 @@ table {
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
 }
 table tr:hover td {
-  color: white;
+  color: var(--color-light-blue);
 }
 table th, table td {
-  color: #999;
+  color: white;
   border: 1px solid #eee;
   padding: 12px 35px;
   border-collapse: collapse;

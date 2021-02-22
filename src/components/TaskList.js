@@ -13,6 +13,28 @@ function TaskList() {
     setTasks(newTasks);
     console.log(task, ...tasks);
   };
+
+  // Done Task
+  const completeTask = (id) => {
+    let updatedTask = tasks.map((task) => {
+      if (task.id === id) {
+        // task.isComplete = !task.isComplete;
+        // task.status = "Done";
+        return {
+          ...task,
+          isComplete: !task.isComplete,
+        };
+      }
+      return task;
+    });
+    setTasks(updatedTask);
+  };
+
+  // Remove Task
+  const removeTask = (id) => {
+    const newTasksArray = [...tasks].filter((task) => task.id !== id);
+    setTasks(newTasksArray);
+  };
   return (
     <div className="task_list">
       <TaskForm onSubmit={addTask} />
@@ -41,7 +63,11 @@ function TaskList() {
             </label>
           </div>
         </div>
-        <Tasks tasks={tasks} />
+        <Tasks
+          tasks={tasks}
+          completeTask={completeTask}
+          removeTask={removeTask}
+        />
       </div>
     </div>
   );

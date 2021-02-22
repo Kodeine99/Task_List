@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import TaskForm from "./TaskForm";
+import "../assets/css/TaskItem.css";
 
-function Tasks({ tasks }) {
+function Tasks({ tasks, completeTask, removeTask }) {
   return (
     <div>
       <div className="taskList">
@@ -40,33 +41,33 @@ function Tasks({ tasks }) {
             </tr>
             {tasks.map((task, index) => (
               <tr key={index}>
-                <td>{task.id}</td>
-                <td>{task.text}</td>
-                <td>{task.status}</td>
+                <td
+                  className={`task-item ${task.isComplete ? "completed" : ""}`}
+                >
+                  {task.id}
+                </td>
+                <td
+                  className={`task-item ${task.isComplete ? "completed" : ""}`}
+                >
+                  {task.text}
+                </td>
+                <td>{`${!task.isComplete ? "InComplete" : "Completed"}`}</td>
                 <td className="btnControll">
-                  <button className="actionBtn Btn_Done">Done</button>
-                  <button className="actionBtn Btn_Del">Delete</button>
+                  <button
+                    className="actionBtn Btn_Done"
+                    onClick={() => completeTask(task.id)}
+                  >
+                    {`${!task.isComplete ? "Done" : "Unfinished"}`}
+                  </button>
+                  <button
+                    className="actionBtn Btn_Del"
+                    onClick={() => removeTask(task.id)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
-            {/* <tr>
-              <td>1</td>
-              <td>Learning ReactJs</td>
-              <td>InComplete</td>
-              <td className="btnControll">
-                <button className="actionBtn">Edit</button>
-                <button className="actionBtn">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Reading</td>
-              <td>Done</td>
-              <td className="btnControll">
-                <button className="actionBtn">Edit</button>
-                <button className="actionBtn">Delete</button>
-              </td>
-            </tr> */}
           </tbody>
         </table>
       </div>

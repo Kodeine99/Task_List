@@ -1,0 +1,7 @@
+.task-item{
+
+}
+.task-item.completed{
+  text-decoration: line-through;
+  color: #666;
+}

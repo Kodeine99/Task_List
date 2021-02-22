@@ -14,7 +14,6 @@ function TaskForm(props) {
       id: Math.floor(Math.random() * 10000),
       text: input,
       isComplete: false,
-      status: "InComplete",
     });
 
     setInput("");
