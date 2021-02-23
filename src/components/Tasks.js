@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import TaskForm from "./TaskForm";
 import "../assets/css/TaskItem.css";
 
-function Tasks({ tasks, completeTask, removeTask }) {
+function Tasks({
+  tasks,
+  completeTask,
+  removeTask,
+  statusHandler,
+  filteredTasks,
+}) {
+  console.log(filteredTasks);
   return (
     <div>
       <div className="taskList">
@@ -29,22 +36,26 @@ function Tasks({ tasks, completeTask, removeTask }) {
               <td>
                 <div className="sortTask">
                   <label className="custom-select" htmlFor="styledSelect1">
-                    <select id="styledSelect1" name="options">
-                      <option value="">All</option>
-                      <option value="3">InComplete</option>
-                      <option value="4">Done</option>
+                    <select
+                      onChange={statusHandler}
+                      id="styledSelect1"
+                      name="options"
+                    >
+                      <option value="all">All</option>
+                      <option value="uncomplete">InComplete</option>
+                      <option value="done">Done</option>
                     </select>
                   </label>
                 </div>
               </td>
               <td></td>
             </tr>
-            {tasks.map((task, index) => (
+            {filteredTasks.map((task, index) => (
               <tr key={index}>
                 <td
                   className={`task-item ${task.isComplete ? "completed" : ""}`}
                 >
-                  {task.id}
+                  {index + 1}
                 </td>
                 <td
                   className={`task-item ${task.isComplete ? "completed" : ""}`}
