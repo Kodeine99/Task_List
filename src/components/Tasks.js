@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import TaskForm from "./TaskForm";
-import "../assets/css/TaskItem.css";
+import "../assets/css/taskItem.css";
 
 function Tasks({
   tasks,
@@ -25,14 +24,7 @@ function Tasks({
           <tbody>
             <tr>
               <td></td>
-              <td>
-                <input
-                  className="quickSearch_input"
-                  placeholder="Search"
-                  required=""
-                  type="text"
-                />
-              </td>
+              <td></td>
               <td>
                 <div className="sortTask">
                   <label className="custom-select" htmlFor="styledSelect1">

@@ -81,6 +81,16 @@ function TaskList() {
     setTasks(newTasksArray);
   };
 
+  // Search Task
+  const searchTask = (e) => {
+    const value = e.target.value;
+    const tasksAfterSearch = [...tasks].filter((task) => {
+      return task.content.toLowerCase().includes(value);
+    });
+    console.log(value);
+    setTasks(tasksAfterSearch);
+  };
+
   const statusHandler = (e) => {
     setStatus(e.target.value);
   };
@@ -89,7 +99,7 @@ function TaskList() {
       <TaskForm onSubmit={addTask} />
       <div className="task-list__form">
         <div className="controllTask">
-          <div className="searchTask">
+          {/* <div className="searchTask">
             <input
               className="search_input"
               placeholder="Search"
@@ -99,18 +109,6 @@ function TaskList() {
             <button className="btn_search" type="button">
               Search
             </button>
-          </div>
-          {/* Sort */}
-          {/* <div className="sortTask">
-            <label className="custom-select" htmlFor="styledSelect1">
-              <select id="styledSelect1" name="options">
-                <option value="">Sort By</option>
-                <option value="1">A-Z</option>
-                <option value="2">Z-A</option>
-                <option value="3">InComplete</option>
-                <option value="4">Done</option>
-              </select>
-            </label>
           </div> */}
         </div>
         <Tasks

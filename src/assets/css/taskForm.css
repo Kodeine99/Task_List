@@ -59,6 +59,7 @@ input:-webkit-autofill:focus {
 }
 .task-list__form {
   margin-top: 3rem;
+  margin-bottom: 5rem;
   background: var(--color-medium-blue);
   padding: 50px 100px;
   border: 2px solid white;
